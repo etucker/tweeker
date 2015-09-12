@@ -2,8 +2,8 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: `<Number of hours spent>`
-- 9/12 9:40am-11:35 (sign in with oauth, can make signed request to get user. Video 1: 22:00)
+Time spent: `2`
+- 9/12 9:40am-11:40 (sign in with oauth, can make signed request to get user. Video 1: 22:00)
 
 ### Features
 
