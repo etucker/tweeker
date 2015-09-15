@@ -24,6 +24,17 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance
     }
     
+    func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> () ) {
+        GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+                completion(tweets: tweets, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("error getting home timeline: \(error)")
+                completion(tweets: nil, error: error)
+        })
+
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         
@@ -47,27 +58,14 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 
-                var user = User(dictionary: response as! NSDictionary)
-                println("user: \(user.name)")
-                User.currentUser = user
-                self.loginCompletion?(user: user, error: nil)
-                
-            }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println("error getting current user: \(error)")
-                self.loginCompletion?(user: nil, error: error)
-            }
-            
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-                for tweet in tweets {
-                    println("text: \(tweet.text)")
-                    println("\t created: \(tweet.createdAt)")
+                    var user = User(dictionary: response as! NSDictionary)
+                    println("user: \(user.name)")
+                    User.currentUser = user
+                    self.loginCompletion?(user: user, error: nil)
+                }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                    println("error getting current user: \(error)")
+                    self.loginCompletion?(user: nil, error: error)
                 }
-                }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    println("error getting home timeline: \(error)")
-            })
-            
-            
             }) { (error: NSError!) -> Void in
                 println("failed to receive access token")
                 self.loginCompletion?(user: nil, error: error)
