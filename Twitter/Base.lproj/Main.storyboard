@@ -18,10 +18,39 @@
                             <action selector="onLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xAr-Ue-Uac"/>
                         </connections>
                     </button>
+                    <connections>
+                        <segue destination="W56-MG-ZOH" kind="modal" identifier="loginSegue" id="ov6-A2-gaz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="108.26666666666667" y="320.92000000000002"/>
+        </scene>
+        <!--Tweets View Controller-->
+        <scene sceneID="WPg-Wi-4tL">
+            <objects>
+                <viewController storyboardIdentifier="TweetsViewController" id="W56-MG-ZOH" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kPO-b4-1UQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oSX-3G-sQh">
+                                <rect key="frame" x="136" y="269" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogout:" destination="W56-MG-ZOH" eventType="touchUpInside" id="pE4-ac-uw2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgG-Nv-8ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="507" y="319"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
