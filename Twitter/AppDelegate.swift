@@ -42,23 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        println("Application opened with url \(url)")
-        
-        TwitterClient.sharedInstance.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in
-            println("received the access token")
-            TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
-            
-            TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                println("user: \(response)")
-                }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    println("error getting current user: \(error)")
-            }
-            
-            
-            }) { (error: NSError!) -> Void in
-            println("failed to receive access token")
-        }
-        
+        TwitterClient.sharedInstance.openURL(url)
         return true
     }
 }

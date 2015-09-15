@@ -4,6 +4,7 @@ This is a basic twitter app to read and compose tweets the [Twitter API](https:/
 
 Time spent: `2`
 - 9/12 9:40am-11:40 (sign in with oauth, can make signed request to get user. Video 1: 22:00)
+- 9/14 7:45pm-9pm (refactored things into TwitterClient)
 
 ### Features
 
