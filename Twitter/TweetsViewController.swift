@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AFNetworking
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDataSource {
 
     var tweets: [Tweet]?
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +22,36 @@ class TweetsViewController: UIViewController {
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
             self.tweets = tweets
             println("Got some tweets up in here")
+            println("tweet: \(tweets?[0].text)")
+            println(tweets?[0].dictionary)
+            
+            self.tableView.dataSource = self
+            self.tableView.reloadData()
         })
     }
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tweets = tweets {
+            return tweets.count
+        }
+        return 0
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
+        
+        var tweet = tweets?[indexPath.row]
+        if let tweet = tweet {
+//            cell.nameLabel.text = tweet.user?.name
+//            cell.screennameLabel.text = tweet.user?.screenname
+//            cell.profileImageView.setImageWithURL(tweet.user?.profileImageUrl)
+//            cell.tweetTextLabel.text = tweet.text
+            cell.tweet = tweet
+        }
+        
+        return cell
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
