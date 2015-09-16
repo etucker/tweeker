@@ -14,21 +14,39 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
     var tweets: [Tweet]?
     
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-            self.tweets = tweets
-            println("Got \(tweets?.count) tweets up in here")
-            self.tableView.dataSource = self
-            self.tableView.reloadData()
-        })
+        setupRefreshControl()
+        loadTweets()
     }
 
+    // Hack to use Apple's standard UIRefreshControl in a UIViewController instead of a UITableViewController.
+    // See https://guides.codepath.com/ios/Table-View-Guide#implementing-pull-to-refresh-with-uirefreshcontrol
+    func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "loadTweets", forControlEvents: UIControlEvents.ValueChanged)
+        let dummyTableViewController = UITableViewController()
+        dummyTableViewController.tableView = tableView
+        dummyTableViewController.refreshControl = refreshControl
+    }
+
+    func loadTweets() {
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
+            println("Got \(tweets?.count) tweets to show in your timeline")
+
+            self.tweets = tweets
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        })
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let tweets = tweets {
             return tweets.count

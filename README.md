@@ -2,11 +2,12 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: `7.25`
+Time spent: `7.5`
 - 9/12 9:40am-11:40 (sign in with oauth, can make signed request to get user. Video 1: 22:00)
 - 9/14 7:45pm-10:15pm (refactored things into TwitterClient)
 - 9/14 10:30pm-11:50pm (Get tweets showing up in timeline)
 - 9/15 5:00pm-6:40 (Move logout button to navigation controller, time ago on tweets. Autolayout tweet view)
+- 9/15 6:40pm-7pm (Pull to refresh)
 
 ### Features
 
@@ -16,7 +17,7 @@ Time spent: `7.25`
 - [x] User can view last 20 tweets from their home timeline
 - [x] The current signed in user will be persisted across restarts
 - [x] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.  In other words, design the custom cell with the proper Auto Layout settings.  You will also need to augment the model classes.
-- [ ] User can pull to refresh
+- [x] User can pull to refresh
 - [ ] User can compose a new tweet by tapping on a compose button.
 - [ ] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [ ] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
