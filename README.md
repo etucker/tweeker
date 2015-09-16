@@ -8,8 +8,9 @@ Time spent: `8.5`
 - 9/14 10:30pm-11:50pm (Get tweets showing up in timeline)
 - 9/15 5:00pm-6:40 (Move logout button to navigation controller, time ago on tweets. Autolayout tweet view)
 - 9/15 6:40pm-7pm (Pull to refresh)
-- 9/15 8-9pm (User can compose a new tweet)
-- 9/15 9-10:20 (Timeline shows reply, retweet, and favorite icons and correct numbers)
+- 9/15 8pm-9pm (User can compose a new tweet)
+- 9/15 9pm-10:20pm (Timeline shows reply, retweet, and favorite icons and correct numbers)
+- 9/15 10:20pm-10:45pm (Hooked up retweet and favorite buttons)
 
 ### Features
 
@@ -22,7 +23,7 @@ Time spent: `8.5`
 - [x] User can pull to refresh
 - [x] User can compose a new tweet by tapping on a compose button.
 - [ ] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
-- [ ] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
+- [/] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
 
 #### Optional
 

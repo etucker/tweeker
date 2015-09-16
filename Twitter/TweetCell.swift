@@ -45,6 +45,17 @@ class TweetCell: UITableViewCell {
         }
     }
     
+    @IBAction func onFavorited(sender: AnyObject) {        TwitterClient.sharedInstance.favoriteTweet(tweet.idStr!, completion: { (error) -> () in
+            // TODO: if error == nil, change the state in the UI.
+        })
+    }
+    
+    @IBAction func onRetweeted(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweetTweet(tweet.idStr!, completion: { (error) -> () in
+            // TODO: if error == nil, change the state in the UI.
+        })
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

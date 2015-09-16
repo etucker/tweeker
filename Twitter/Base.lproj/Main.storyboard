@@ -120,6 +120,9 @@ was he?</string>
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onRetweeted:" destination="PgC-AU-ugm" eventType="touchUpInside" id="aQ3-Jm-Elw"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wK-qt-hGU">
                                                     <rect key="frame" x="196" y="104" width="50" height="22"/>
@@ -133,6 +136,9 @@ was he?</string>
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onFavorited:" destination="PgC-AU-ugm" eventType="touchUpInside" id="g0o-Qc-lCt"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
