@@ -32,7 +32,20 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 println("error getting home timeline: \(error)")
                 completion(tweets: nil, error: error)
         })
-
+    }
+    
+    func postTweet(status: String, inReplyToStatusId: String?, completion: (error: NSError?) -> () ) {
+        var parameters = ["status": status]
+        if inReplyToStatusId != nil {
+            parameters["in_reply_to_status_id"] = inReplyToStatusId
+        }
+        
+        POST("1.1/statuses/update.json", parameters: parameters, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                completion(error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("error updating status: \(error)")
+                completion(error: error)
+        })
     }
     
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
