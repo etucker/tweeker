@@ -38,4 +38,4 @@ Time spent: `11.5`
 
 ### Walkthrough
 
-![Video Walkthrough](https://raw.githubusercontent.com/etucker/ios_yelp_swift/master/walkthrough.gif)
+![Video Walkthrough](https://raw.githubusercontent.com/etucker/tweeker/master/walkthrough.gif)
