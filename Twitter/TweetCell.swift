@@ -14,12 +14,14 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screennameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     
     var tweet: Tweet! {
         didSet {
             nameLabel.text = tweet.user?.name
             screennameLabel.text = "@" + tweet.user!.screenname!
+            timeLabel.text = tweet.createdAt?.shortTimeAgoSinceNow()
             tweetTextLabel.text = tweet.text
             profileImageView.setImageWithURL(tweet.user!.profileImageUrl)
         }
@@ -35,5 +37,4 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
