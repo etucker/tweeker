@@ -9,9 +9,12 @@
 import UIKit
 import AFNetworking
 
-class TweetsViewController: UIViewController, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDataSource, TweetCellDelegate {
 
     var tweets: [Tweet]?
+    
+    // for the TweetCellDelegate action replyTo
+    var lastActedOnTweet: Tweet?
     
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
@@ -59,14 +62,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         
         var tweet = tweets?[indexPath.row]
         if let tweet = tweet {
-//            cell.nameLabel.text = tweet.user?.name
-//            cell.screennameLabel.text = tweet.user?.screenname
-//            cell.profileImageView.setImageWithURL(tweet.user?.profileImageUrl)
-//            cell.tweetTextLabel.text = tweet.text
             cell.tweet = tweet
+            cell.delegate = self
         }
         
         return cell
+    }
+    
+    func replyTo(tweet: Tweet) {
+        lastActedOnTweet = tweet
+        performSegueWithIdentifier("composeSegue", sender: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,15 +82,18 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
     }
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+        
+        if (segue.identifier == "composeSegue") {
+            var viewController = segue.destinationViewController as! ComposeViewController
+            viewController.tweetActedUpon = self.lastActedOnTweet
+        }
 
+    }
 }

@@ -2,7 +2,7 @@
 
 This is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: `8.5`
+Time spent: `11.5`
 - 9/12 9:40am-11:40 (sign in with oauth, can make signed request to get user. Video 1: 22:00)
 - 9/14 7:45pm-10:15pm (refactored things into TwitterClient)
 - 9/14 10:30pm-11:50pm (Get tweets showing up in timeline)
@@ -12,6 +12,7 @@ Time spent: `8.5`
 - 9/15 9pm-10:20pm (Timeline shows reply, retweet, and favorite icons and correct numbers)
 - 9/15 10:20pm-10:45pm (Hooked up retweet and favorite buttons)
 - 9/15 10:45pm-10:55pm (Retweeting and favoriting should increment the retweet and favorite count.)
+- 9/15 10:55pm-11:55pm (Replies now keep the context of the original tweet. Created gif walkthrough)
 
 ### Features
 
@@ -23,8 +24,8 @@ Time spent: `8.5`
 - [x] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.  In other words, design the custom cell with the proper Auto Layout settings.  You will also need to augment the model classes.
 - [x] User can pull to refresh
 - [x] User can compose a new tweet by tapping on a compose button.
-- [ ] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
-- [/] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
+- [s] User can tap on a tweet to view it, with controls to retweet, favorite, and reply. (seems extraneous)
+- [x] User can retweet, favorite, and reply to the tweet directly from the timeline feed.
 
 #### Optional
 
@@ -32,9 +33,9 @@ Time spent: `8.5`
 - [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [x] Retweeting and favoriting should increment the retweet and favorite count.
 - [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
-- [ ] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
+- [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](https://raw.githubusercontent.com/etucker/ios_yelp_swift/master/walkthrough.gif)

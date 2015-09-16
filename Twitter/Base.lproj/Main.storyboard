@@ -107,6 +107,9 @@ was he?</string>
                                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onReply:" destination="PgC-AU-ugm" eventType="touchUpInside" id="Trn-R7-r5u"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quM-eW-T8N">
                                                     <rect key="frame" x="130" y="104" width="50" height="22"/>
@@ -192,7 +195,7 @@ was he?</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="1gA-1c-Y9b">
                             <connections>
-                                <segue destination="gaB-Kg-7zS" kind="push" id="Wma-73-NIr"/>
+                                <segue destination="gaB-Kg-7zS" kind="push" identifier="composeSegue" id="Wma-73-NIr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

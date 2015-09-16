@@ -15,6 +15,8 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var composeTextField: UITextField!
     
+    var tweetActedUpon: Tweet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,10 @@ class ComposeViewController: UIViewController {
         self.nameLabel.text = user.name
         screennameLabel.text = "@" + user.screenname!
         profileImageView.setImageWithURL(user.profileImageUrl)
+        
+        if tweetActedUpon != nil && tweetActedUpon?.user?.screenname != nil {
+            composeTextField.text = "@\(tweetActedUpon!.user!.screenname!) "
+        }
 
         // TODO: Make the composeTextField active to prevent an extra tap for the user.
     }
@@ -36,7 +42,7 @@ class ComposeViewController: UIViewController {
             return
         }
         
-        TwitterClient.sharedInstance.postTweet(composeTextField.text, inReplyToStatusId: nil) { (error) -> () in
+        TwitterClient.sharedInstance.postTweet(composeTextField.text, inReplyToStatusId: tweetActedUpon?.idStr) { (error) -> () in
             // TODO: Show an error dialog?
             // TODO: Return them back to home timeline
         }
@@ -49,15 +55,13 @@ class ComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
-
 }

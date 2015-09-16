@@ -9,6 +9,10 @@
 import UIKit
 import AFNetworking
 
+protocol TweetCellDelegate {
+    func replyTo(tweet: Tweet)
+}
+
 class TweetCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -25,6 +29,8 @@ class TweetCell: UITableViewCell {
             updateView()
         }
     }
+    
+    var delegate: TweetCellDelegate?
     
     func updateView() {
         nameLabel.text = tweet.user?.name
@@ -67,6 +73,12 @@ class TweetCell: UITableViewCell {
                 self.updateView()
             }
         })
+    }
+    
+    @IBAction func onReply(sender: AnyObject) {
+        if let delegate = delegate {
+            delegate.replyTo(tweet)
+        }
     }
     
     override func awakeFromNib() {
