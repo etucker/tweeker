@@ -22,37 +22,50 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
-            nameLabel.text = tweet.user?.name
-            screennameLabel.text = "@" + tweet.user!.screenname!
-            timeLabel.text = tweet.createdAt?.shortTimeAgoSinceNow()
-            tweetTextLabel.text = tweet.text
-            profileImageView.setImageWithURL(tweet.user!.profileImageUrl)
-            
-            retweetButton.setTitle(String(tweet.retweetCount!), forState: UIControlState.Normal)
-            favoriteButton.setTitle(String(tweet.favoriteCount!), forState: UIControlState.Normal)
-            
-            if tweet.userRetweeted {
-                retweetButton.setImage(UIImage(named: "retweet_on"), forState: UIControlState.Normal)
-            } else {
-                retweetButton.setImage(UIImage(named: "retweet"), forState: UIControlState.Normal)
-            }
-            
-            if tweet.userFavorited {
-                favoriteButton.setImage(UIImage(named: "favorite_on"), forState: UIControlState.Normal)
-            } else {
-                favoriteButton.setImage(UIImage(named: "favorite"), forState: UIControlState.Normal)
-            }
+            updateView()
         }
     }
     
-    @IBAction func onFavorited(sender: AnyObject) {        TwitterClient.sharedInstance.favoriteTweet(tweet.idStr!, completion: { (error) -> () in
-            // TODO: if error == nil, change the state in the UI.
+    func updateView() {
+        nameLabel.text = tweet.user?.name
+        screennameLabel.text = "@" + tweet.user!.screenname!
+        timeLabel.text = tweet.createdAt?.shortTimeAgoSinceNow()
+        tweetTextLabel.text = tweet.text
+        profileImageView.setImageWithURL(tweet.user!.profileImageUrl)
+        
+        retweetButton.setTitle(String(tweet.retweetCount!), forState: UIControlState.Normal)
+        favoriteButton.setTitle(String(tweet.favoriteCount!), forState: UIControlState.Normal)
+        
+        if tweet.userRetweeted {
+            retweetButton.setImage(UIImage(named: "retweet_on"), forState: UIControlState.Normal)
+        } else {
+            retweetButton.setImage(UIImage(named: "retweet"), forState: UIControlState.Normal)
+        }
+        
+        if tweet.userFavorited {
+            favoriteButton.setImage(UIImage(named: "favorite_on"), forState: UIControlState.Normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "favorite"), forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBAction func onFavorited(sender: AnyObject) {
+        TwitterClient.sharedInstance.favoriteTweet(tweet.idStr!, completion: { (error) -> () in
+            if error == nil {
+                self.tweet.userFavorited = true
+                self.tweet.favoriteCount! += 1
+                self.updateView()
+            }
         })
     }
     
     @IBAction func onRetweeted(sender: AnyObject) {
         TwitterClient.sharedInstance.retweetTweet(tweet.idStr!, completion: { (error) -> () in
-            // TODO: if error == nil, change the state in the UI.
+            if error == nil {
+                self.tweet.userRetweeted = true
+                self.tweet.retweetCount! += 1
+                self.updateView()
+            }
         })
     }
     

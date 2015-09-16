@@ -11,6 +11,7 @@ Time spent: `8.5`
 - 9/15 8pm-9pm (User can compose a new tweet)
 - 9/15 9pm-10:20pm (Timeline shows reply, retweet, and favorite icons and correct numbers)
 - 9/15 10:20pm-10:45pm (Hooked up retweet and favorite buttons)
+- 9/15 10:45pm-10:55pm (Retweeting and favoriting should increment the retweet and favorite count.)
 
 ### Features
 
@@ -29,7 +30,7 @@ Time spent: `8.5`
 
 - [ ] When composing, you should have a countdown in the upper right for the tweet limit.
 - [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
-- [ ] Retweeting and favoriting should increment the retweet and favorite count.
+- [x] Retweeting and favoriting should increment the retweet and favorite count.
 - [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [ ] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
