@@ -17,6 +17,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     var tweet: Tweet! {
         didSet {
             nameLabel.text = tweet.user?.name
@@ -24,6 +27,21 @@ class TweetCell: UITableViewCell {
             timeLabel.text = tweet.createdAt?.shortTimeAgoSinceNow()
             tweetTextLabel.text = tweet.text
             profileImageView.setImageWithURL(tweet.user!.profileImageUrl)
+            
+            retweetButton.setTitle(String(tweet.retweetCount!), forState: UIControlState.Normal)
+            favoriteButton.setTitle(String(tweet.favoriteCount!), forState: UIControlState.Normal)
+            
+            if tweet.userRetweeted {
+                retweetButton.setImage(UIImage(named: "retweet_on"), forState: UIControlState.Normal)
+            } else {
+                retweetButton.setImage(UIImage(named: "retweet"), forState: UIControlState.Normal)
+            }
+            
+            if tweet.userFavorited {
+                favoriteButton.setImage(UIImage(named: "favorite_on"), forState: UIControlState.Normal)
+            } else {
+                favoriteButton.setImage(UIImage(named: "favorite"), forState: UIControlState.Normal)
+            }
         }
     }
     

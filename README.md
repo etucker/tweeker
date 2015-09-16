@@ -9,6 +9,7 @@ Time spent: `8.5`
 - 9/15 5:00pm-6:40 (Move logout button to navigation controller, time ago on tweets. Autolayout tweet view)
 - 9/15 6:40pm-7pm (Pull to refresh)
 - 9/15 8-9pm (User can compose a new tweet)
+- 9/15 9-10:20 (Timeline shows reply, retweet, and favorite icons and correct numbers)
 
 ### Features
 
