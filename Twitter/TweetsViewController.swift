@@ -21,10 +21,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
             self.tweets = tweets
-            println("Got some tweets up in here")
-            println("tweet: \(tweets?[0].text)")
-            println(tweets?[0].dictionary)
-            
+            println("Got \(tweets?.count) tweets up in here")
             self.tableView.dataSource = self
             self.tableView.reloadData()
         })

@@ -6,13 +6,14 @@ Time spent: `5.75`
 - 9/12 9:40am-11:40 (sign in with oauth, can make signed request to get user. Video 1: 22:00)
 - 9/14 7:45pm-10:15pm (refactored things into TwitterClient)
 - 9/14 10:30pm-11:50pm (Get tweets showing up in timeline)
+- 9/15 5:00pm- (Move logout button to navigation controller, time ago on tweets)
 
 ### Features
 
 #### Required
 
 - [x] User can sign in using OAuth login flow
-- [/] User can view last 20 tweets from their home timeline
+- [x] User can view last 20 tweets from their home timeline
 - [x] The current signed in user will be persisted across restarts
 - [ ] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.  In other words, design the custom cell with the proper Auto Layout settings.  You will also need to augment the model classes.
 - [ ] User can pull to refresh
