@@ -36,13 +36,13 @@ class ComposeViewController: UIViewController {
     @IBAction func sendTweetClicked(sender: AnyObject) {
         let tweetText = composeTextField.text
         
-        if count(tweetText) > 140 {
+        if tweetText!.characters.count > 140 {
             let alert = UIAlertView(title: "Get Terse", message: "Tweets can only be 140 characters or less.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
             return
         }
         
-        TwitterClient.sharedInstance.postTweet(composeTextField.text, inReplyToStatusId: tweetActedUpon?.idStr) { (error) -> () in
+        TwitterClient.sharedInstance.postTweet(composeTextField!.text!, inReplyToStatusId: tweetActedUpon?.idStr) { (error) -> () in
             // TODO: Show an error dialog?
             // TODO: Return them back to home timeline
         }

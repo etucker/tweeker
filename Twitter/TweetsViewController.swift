@@ -42,7 +42,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, TweetCellDe
 
     func loadTweets() {
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-            println("Got \(tweets?.count) tweets to show in your timeline")
+            print("Got \(tweets?.count) tweets to show in your timeline")
 
             self.tweets = tweets
             self.tableView.reloadData()
@@ -58,9 +58,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, TweetCellDe
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
         
-        var tweet = tweets?[indexPath.row]
+        let tweet = tweets?[indexPath.row]
         if let tweet = tweet {
             cell.tweet = tweet
             cell.delegate = self
@@ -91,7 +91,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, TweetCellDe
         // Pass the selected object to the new view controller.
         
         if (segue.identifier == "composeSegue") {
-            var viewController = segue.destinationViewController as! ComposeViewController
+            let viewController = segue.destinationViewController as! ComposeViewController
             viewController.tweetActedUpon = self.lastActedOnTweet
         }
 

@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if User.currentUser != nil {
             // Go to logged in screen
-            println("current user detected")
+            print("current user detected")
 
-            var viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTweetsViewController") as? UIViewController
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTweetsViewController")
             window?.rootViewController = viewController
         }
         
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func userDidLogout() {
-        var viewController = storyboard.instantiateInitialViewController() as? UIViewController
+        let viewController = storyboard.instantiateInitialViewController() // as? UIViewController
         window?.rootViewController = viewController
         
     }
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         TwitterClient.sharedInstance.openURL(url)
         return true
     }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2055A400646F3064BA8C5C30 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3A4EBD540BEDC3AF1DADC9 /* libPods.a */; };
 		456FABFB1BA915B000FD70D0 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456FABFA1BA915B000FD70D0 /* ComposeViewController.swift */; };
+		458F1ECD1BAFC42100FEAB60 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F1ECC1BAFC42000FEAB60 /* HamburgerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		458F1ECF1BAFC48600FEAB60 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F1ECE1BAFC48600FEAB60 /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		458F1ED11BAFC72A00FEAB60 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F1ED01BAFC72A00FEAB60 /* MenuCell.swift */; settings = {ASSET_TAGS = (); }; };
 		459014511BA08D8B00E5000A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459014501BA08D8B00E5000A /* AppDelegate.swift */; };
 		459014531BA08D8B00E5000A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459014521BA08D8B00E5000A /* ViewController.swift */; };
 		459014561BA08D8B00E5000A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 459014541BA08D8B00E5000A /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		456FABFA1BA915B000FD70D0 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		458F1ECC1BAFC42000FEAB60 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
+		458F1ECE1BAFC48600FEAB60 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		458F1ED01BAFC72A00FEAB60 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		4590144B1BA08D8B00E5000A /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4590144F1BA08D8B00E5000A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459014501BA08D8B00E5000A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 				45D730AC1BA7D48900AD13C5 /* TweetsViewController.swift */,
 				459014521BA08D8B00E5000A /* ViewController.swift */,
 				456FABFA1BA915B000FD70D0 /* ComposeViewController.swift */,
+				458F1ECC1BAFC42000FEAB60 /* HamburgerViewController.swift */,
+				458F1ECE1BAFC48600FEAB60 /* MenuViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -168,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				45D9F8531BA7E4FE00990720 /* TweetCell.swift */,
+				458F1ED01BAFC72A00FEAB60 /* MenuCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -234,7 +243,9 @@
 		459014431BA08D8B00E5000A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Eli Tucker";
 				TargetAttributes = {
 					4590144A1BA08D8B00E5000A = {
@@ -323,9 +334,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				458F1ECD1BAFC42100FEAB60 /* HamburgerViewController.swift in Sources */,
+				458F1ECF1BAFC48600FEAB60 /* MenuViewController.swift in Sources */,
 				459014531BA08D8B00E5000A /* ViewController.swift in Sources */,
 				45D9F8541BA7E4FE00990720 /* TweetCell.swift in Sources */,
 				45F1A62B1BA491A900738004 /* TwitterClient.swift in Sources */,
+				458F1ED11BAFC72A00FEAB60 /* MenuCell.swift in Sources */,
 				456FABFB1BA915B000FD70D0 /* ComposeViewController.swift in Sources */,
 				45D730AD1BA7D48900AD13C5 /* TweetsViewController.swift in Sources */,
 				459014511BA08D8B00E5000A /* AppDelegate.swift in Sources */,
@@ -393,6 +407,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -461,6 +476,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nerdmonkey.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Twitter/Twitter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -475,6 +491,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nerdmonkey.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Twitter/Twitter-Bridging-Header.h";
 			};
@@ -494,6 +511,7 @@
 				);
 				INFOPLIST_FILE = TwitterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nerdmonkey.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Twitter.app/Twitter";
 			};
@@ -509,6 +527,7 @@
 				);
 				INFOPLIST_FILE = TwitterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nerdmonkey.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Twitter.app/Twitter";
 			};
