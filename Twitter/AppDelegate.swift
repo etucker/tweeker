@@ -17,14 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+
+        // Setup the Hamburger view controller
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+        let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+        menuViewController.hamburgerViewController = hamburgerViewController
+        hamburgerViewController.menuViewController = menuViewController
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
         if User.currentUser != nil {
             // Go to logged in screen
             print("current user detected")
 
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTweetsViewController")
+//            let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTweetsViewController")
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerNavigationViewController")
             window?.rootViewController = viewController
         }
         
