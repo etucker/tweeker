@@ -13,8 +13,15 @@ Time spent: `11.5`
 - 9/15 10:20pm-10:45pm (Hooked up retweet and favorite buttons)
 - 9/15 10:45pm-10:55pm (Retweeting and favoriting should increment the retweet and favorite count.)
 - 9/15 10:55pm-11:55pm (Replies now keep the context of the original tweet. Created gif walkthrough)
+- 9/15 submitted v1
 
-### Features
+New: 3.75
+- 9/20 0.75h 3:00-3:45pm Watch on video hamburgerlers
+- 9/20 2.5h 8pm-11:30pm Implementing a not quite fully working hamburger menu.
+- 9/20 .5 11:30-12pm Tim helping me debug my hamburger menu.
+
+
+### Features, Round 1
 
 #### Required
 
@@ -35,6 +42,26 @@ Time spent: `11.5`
 - [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
+
+### Features, Round 2
+
+- [ ] Hamburger menu
+  - [ ] Dragging anywhere in the view should reveal the menu.
+  - [ ] The menu should include links to your profile, the home timeline, and the mentions view.
+  - [ ] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+- [ ] Profile page
+  - [ ] Contains the user header view
+  - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+  - [ ] Optional: Implement the paging view for the user description.
+  - [ ] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+  - [ ] Optional: Pulling down the profile page should blur and resize the header image.
+- [ ] Home Timeline
+  - [ ] Tapping on a user image should bring up that user's profile page
+- [ ] Optional: Account switching
+  - [ ] Long press on tab bar to bring up Account view with animation
+  - [ ] Tap account to switch to
+  - [ ] Include a plus button to Add an Account
+  - [ ] Swipe to delete an account
 
 ### Walkthrough
 
