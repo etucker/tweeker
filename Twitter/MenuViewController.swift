@@ -41,7 +41,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath) as! MenuCell
         
-        let titles = ["Timeline", "Blue", "Pink"]
+        let titles = ["Timeline", "Mentions", "Profile"]
         cell.menuTitleLabel.text = titles[indexPath.row]
         
         return cell
@@ -50,7 +50,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        hamburgerViewController?.contentViewController = viewControllers[0] //indexPath.row]
+        hamburgerViewController?.contentViewController = viewControllers[0]
     }
     
     override func didReceiveMemoryWarning() {

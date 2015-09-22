@@ -42,6 +42,7 @@ class HamburgerViewController: UIViewController {
             contentViewController.willMoveToParentViewController(self)
             contentView.addSubview(contentViewController.view)
             contentViewController.didMoveToParentViewController(self)
+            contentViewController.view.frame = contentView.bounds // Tip from Bill
             
             UIView.animateWithDuration(0.3) { () -> Void in
                 self.leftMarginConstraint.constant = 0

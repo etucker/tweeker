@@ -20,7 +20,6 @@ New: 3.75
 - 9/20 2.5h 8pm-11:30pm Implementing a not quite fully working hamburger menu.
 - 9/20 .5 11:30-12pm Tim helping me debug my hamburger menu.
 
-
 ### Features, Round 1
 
 #### Required
@@ -45,23 +44,35 @@ New: 3.75
 
 ### Features, Round 2
 
+## Twitter Redux
+
+Time spent: `<Number of hours spent>`
+
+### Features
+
+#### Required
+
 - [ ] Hamburger menu
-  - [ ] Dragging anywhere in the view should reveal the menu.
-  - [ ] The menu should include links to your profile, the home timeline, and the mentions view.
-  - [ ] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+   - [x] Dragging anywhere in the view should reveal the menu.
+   - [x] The menu should include links to your profile, the home timeline, and the mentions view.
+   - [x] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI. (I took a lot of liberties)
 - [ ] Profile page
-  - [ ] Contains the user header view
-  - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
-  - [ ] Optional: Implement the paging view for the user description.
-  - [ ] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-  - [ ] Optional: Pulling down the profile page should blur and resize the header image.
+   - [ ] Contains the user header view
+   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Home Timeline
-  - [ ] Tapping on a user image should bring up that user's profile page
+   - [ ] Tapping on a user image should bring up that user's profile page
+
+#### Optional
+
+- [ ] Profile Page
+   - [ ] Optional: Implement the paging view for the user description.
+   - [ ] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+   - [ ] Optional: Pulling down the profile page should blur and resize the header image.
 - [ ] Optional: Account switching
-  - [ ] Long press on tab bar to bring up Account view with animation
-  - [ ] Tap account to switch to
-  - [ ] Include a plus button to Add an Account
-  - [ ] Swipe to delete an account
+   - [ ] Long press on tab bar to bring up Account view with animation
+   - [ ] Tap account to switch to
+   - [ ] Include a plus button to Add an Account
+   - [ ] Swipe to delete an account
 
 ### Walkthrough
 
