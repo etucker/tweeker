@@ -40,6 +40,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.delegate = self
         
         setupRefreshControl()
         loadTweets()
@@ -65,7 +66,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func hasHeaderSection() -> Bool {
-        if viewMode == ViewMode.Profile {
+        if viewMode == ViewMode.Profile || viewMode == ViewMode.OtherProfile {
             return true
         }
         return false
@@ -123,7 +124,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if hasHeaderSection() && indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("HeaderTableViewCell") as! HeaderTableViewCell
-            cell.user = User.currentUser
+            cell.user = selectedUser != nil ? selectedUser : User.currentUser
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as! TweetCell
@@ -147,8 +148,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         let tweet = tweets?[indexPath.row]
         if let tweet = tweet {
-            viewMode = ViewMode.OtherProfile
             selectedUser = tweet.user!
+            viewMode = ViewMode.OtherProfile
             loadTweets()
         }
     }

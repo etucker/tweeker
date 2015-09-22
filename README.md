@@ -37,15 +37,15 @@ Time spent: `11.5`
 - [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
-## Round 2
+## Features, Round 2
 
-Time spent: `<Number of hours spent>`
+Time spent: `9.5 hours`
 
-New: 3.75
-- 9/20 0.75h 3:00-3:45pm Watch on video hamburgerlers
+- 9/20 0.75h 3:00-3:45pm Watch on video hamburgers
 - 9/20 2.5h 8pm-11:30pm Implementing a not quite fully working hamburger menu.
 - 9/20 .5 11:30-12pm Tim helping me debug my hamburger menu.
-- 9/21 6:00pm-11:15 Profile view shows your profile and tweets; hamburger menu works.
+- 9/21 5.25 6:00pm-11:15 Profile view shows your profile and tweets; hamburger menu works.
+- 9/21 .5 11:15pm-11:45pm A little cleanup and preparing video.
 
 ### Features
 
@@ -58,8 +58,8 @@ New: 3.75
 - [x] Profile page
    - [x] Contains the user header view
    - [x] Contains a section with the users basic stats: # tweets, # following, # followers
-- [ ] Home Timeline
-   - [ ] Tapping on a user image should bring up that user's profile page
+- [x] Home Timeline
+   - [x] Tapping on a user image should bring up that user's profile page
 
 #### Optional
 
@@ -76,4 +76,4 @@ New: 3.75
 
 ### Walkthrough
 
-![Video Walkthrough](https://raw.githubusercontent.com/etucker/tweeker/master/walkthrough.gif)
+![Video Walkthrough](https://raw.githubusercontent.com/etucker/tweeker/master/walkthrough-round2.gif)
