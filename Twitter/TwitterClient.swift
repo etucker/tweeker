@@ -34,6 +34,29 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         })
     }
     
+    func mentionsTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> () ) {
+        GET("1.1/statuses/mentions_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("error getting mentions timeline: \(error)")
+                completion(tweets: nil, error: error)
+        })
+    }
+    
+    func userTimelineWithParams(screenName: String, completion: (tweets: [Tweet]?, error: NSError?) -> () ) {
+        var params = [String: String]()
+        params = ["screen_name": screenName] // seems like there has to be a better way.
+
+        GET("1.1/statuses/user_timeline.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print("error getting user timeline: \(error)")
+                completion(tweets: nil, error: error)
+        })
+    }
+    
     func postTweet(status: String, inReplyToStatusId: String?, completion: (error: NSError?) -> () ) {
         var parameters = ["status": status]
         if inReplyToStatusId != nil {

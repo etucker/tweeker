@@ -15,11 +15,6 @@ Time spent: `11.5`
 - 9/15 10:55pm-11:55pm (Replies now keep the context of the original tweet. Created gif walkthrough)
 - 9/15 submitted v1
 
-New: 3.75
-- 9/20 0.75h 3:00-3:45pm Watch on video hamburgerlers
-- 9/20 2.5h 8pm-11:30pm Implementing a not quite fully working hamburger menu.
-- 9/20 .5 11:30-12pm Tim helping me debug my hamburger menu.
-
 ### Features, Round 1
 
 #### Required
@@ -42,23 +37,27 @@ New: 3.75
 - [x] Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
-### Features, Round 2
-
-## Twitter Redux
+## Round 2
 
 Time spent: `<Number of hours spent>`
+
+New: 3.75
+- 9/20 0.75h 3:00-3:45pm Watch on video hamburgerlers
+- 9/20 2.5h 8pm-11:30pm Implementing a not quite fully working hamburger menu.
+- 9/20 .5 11:30-12pm Tim helping me debug my hamburger menu.
+- 9/21 6:00pm-11:15 Profile view shows your profile and tweets; hamburger menu works.
 
 ### Features
 
 #### Required
 
-- [ ] Hamburger menu
+- [x] Hamburger menu
    - [x] Dragging anywhere in the view should reveal the menu.
    - [x] The menu should include links to your profile, the home timeline, and the mentions view.
    - [x] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI. (I took a lot of liberties)
-- [ ] Profile page
-   - [ ] Contains the user header view
-   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+- [x] Profile page
+   - [x] Contains the user header view
+   - [x] Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Home Timeline
    - [ ] Tapping on a user image should bring up that user's profile page
 
@@ -68,6 +67,7 @@ Time spent: `<Number of hours spent>`
    - [ ] Optional: Implement the paging view for the user description.
    - [ ] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
    - [ ] Optional: Pulling down the profile page should blur and resize the header image.
+   - [x] Show your own tweets on the profile page!
 - [ ] Optional: Account switching
    - [ ] Long press on tab bar to bring up Account view with animation
    - [ ] Tap account to switch to

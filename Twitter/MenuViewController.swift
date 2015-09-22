@@ -25,17 +25,24 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        tweetsNavigationViewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTweetsViewController")
         
-        viewControllers.append(tweetsNavigationViewController)
-        
-        hamburgerViewController?.contentViewController = tweetsNavigationViewController
+        func createNavigationViewControllerForMode(viewMode: ViewMode) -> UINavigationController {
+            let navigationViewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTweetsViewController") as! UINavigationController
+            let tweetsViewController = navigationViewController.viewControllers[0] as! TweetsViewController
+            tweetsViewController.viewMode = viewMode
+            return navigationViewController
+        }
 
-        print("hamburgerViewController = \(hamburgerViewController)")
+        viewControllers.append(createNavigationViewControllerForMode(ViewMode.Timeline))
+//        viewControllers.append(createNavigationViewControllerForMode(ViewMode.Mentions))
+//        viewControllers.append(createNavigationViewControllerForMode(ViewMode.Profile))
+        
+        hamburgerViewController?.contentViewController = viewControllers[0]
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
+        //        return viewControllers.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -50,7 +57,14 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+//        hamburgerViewController?.contentViewController = viewControllers[indexPath.row]
         hamburgerViewController?.contentViewController = viewControllers[0]
+        
+        let navigationViewController = viewControllers[0] as! UINavigationController
+        let tweetsViewController = navigationViewController.viewControllers[0] as! TweetsViewController
+        let viewModes = [ViewMode.Timeline, ViewMode.Mentions, ViewMode.Profile]
+        tweetsViewController.viewMode = viewModes[indexPath.row]
+        
     }
     
     override func didReceiveMemoryWarning() {
